@@ -2,7 +2,7 @@ import com.alibaba.fastjson.JSON;
 import com.baidu.translate.demo.Result;
 import com.baidu.translate.demo.TransApi;
 import com.baidu.translate.demo.Translate;
-import com.translate.network.AppLog;
+import com.baidu.translate.demo.AppLog;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
@@ -42,6 +42,15 @@ public class Main {
                 }
             }
         }
+
+//        String result = api.getTransResult("你好", "zh", "kor");
+//        if (result != null) {
+//            Result trans = new Result(JSON.parseObject(result));
+//            if (!trans.trans_result.isEmpty()) {
+//                Translate translate = trans.trans_result.get(0);
+//                AppLog.d(translate.src + "-->" + translate.dst);
+//            }
+//        }
     }
 
     //翻译xml整个文件
@@ -101,21 +110,21 @@ public class Main {
 
     //根据文件路径判断翻译语言类型
     public static String getTranslate(String name) {
-        if (name.contains("ar")) {
+        if (name.contains("-ar-")) {
             return "ara";
-        } else if (name.contains("fr")) {
+        } else if (name.contains("-fr-")) {
             return "fra";
-        } else if (name.contains("de")) {
+        } else if (name.contains("-de-")) {
             return "de";
-        } else if (name.contains("es")) {
+        } else if (name.contains("-es-")) {
             return "spa";
-        } else if (name.contains("it")) {
+        } else if (name.contains("-it-")) {
             return "it";
-        } else if (name.contains("ja")) {
+        } else if (name.contains("-ja-")) {
             return "jp";//日语
-        } else if (name.contains("ko")) {
-            return "kor";//汉语
-        } else if (name.contains("ru")) {
+        } else if (name.contains("-ko-")) {
+            return "kor";//韩语
+        } else if (name.contains("-ru-")) {
             return "ru";//俄语
         }
         return "en";
